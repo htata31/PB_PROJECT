@@ -1,1 +1,0 @@
-Here is the logs folder ,where the logs are stored.
