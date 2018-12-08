@@ -15,7 +15,7 @@ spark = SparkSession\
 .builder\
 .appName("HashtagCount")\
 .getOrCreate()
-df = spark.read.json("file:///home/saran/Downloads/PBPhase2/extractTweetsM.json")
+df = spark.read.json("/user/hadoop/extractTweetsM.json")
 date= df.select("created_at")
 def dateMTest(dateval):
     dt=datetime.datetime.strptime(dateval, '%a %b %d %H:%M:%S +0000 %Y')

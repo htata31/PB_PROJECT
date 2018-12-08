@@ -12,7 +12,7 @@ if __name__ == "__main__":
         .builder\
         .appName("HashtagCount")\
         .getOrCreate()
-    df = spark.read.json("file:///home/saran/Downloads/PBPhase2/extractTweetsM.json")
+    df = spark.read.json("/user/hadoop/extractTweetsM.json")
     # df.select('text').where('(upper(text) LIKE "%KHOLI%" or upper(text) LIKE "%VIRAT%")').show()
     df.createOrReplaceTempView("player_count")
     sqlhash = spark.sql("SELECT 'Virat' player,count(text) as count  \

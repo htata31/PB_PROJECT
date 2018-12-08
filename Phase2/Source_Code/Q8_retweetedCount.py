@@ -21,7 +21,7 @@ spark = SparkSession\
 .builder\
 .appName("HashtagCount")\
 .getOrCreate()
-df = spark.read.json("file:///home/harish/Downloads/PB/extractTweetsM.json")
+df = spark.read.json("/user/hadoop/extractTweetsM.json")
 df.createOrReplaceTempView("cricket")
 sqldf= spark.sql("SELECT text, count(*) no_of_tweets \
 FROM cricket \

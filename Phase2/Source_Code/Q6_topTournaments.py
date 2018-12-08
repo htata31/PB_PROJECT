@@ -14,7 +14,7 @@ if __name__ == "__main__":
         .builder\
         .appName("HashtagCount")\
         .getOrCreate()
-    df = spark.read.json("file:///home/saran/Downloads/PBPhase2/extractTweetsM.json")
+    df = spark.read.json("/user/hadoop/extractTweetsM.json")
     df.createOrReplaceTempView("cricket")
     sqlhash = spark.sql("SELECT 'T20 World Cup' tournament,count(text) as count \
         FROM cricket\
