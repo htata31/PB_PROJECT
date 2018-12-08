@@ -14,7 +14,7 @@ spark = SparkSession\
 .builder\
 .appName("HashtagCount")\
 .getOrCreate()
-df = spark.read.json("file:///home/saran/Downloads/PBPhase2/extractTweetsM.json")
+df = spark.read.json("/user/hadoop/extractTweetsM.json")
 df=df.filter('(upper(text) LIKE "%WORLD%CUP%2019%" OR upper(text) LIKE "%WC%2019%")')
 df.createOrReplaceTempView("cricket_wc")
 sqldf= spark.sql("SELECT country_name,text FROM(SELECT 'INDIA' country_name,text FROM cricket_wc WHERE 1=1 AND (upper(text) LIKE '%IND%' OR UPPER(TEXT) LIKE '%INDIA%') UNION ALL SELECT 'WEST INDIES' country_name,text FROM cricket_wc WHERE  (upper(text) LIKE '%WI%' or upper(text) LIKE '%WEST%INDIES%'))")

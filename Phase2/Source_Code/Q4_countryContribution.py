@@ -20,7 +20,7 @@ spark = SparkSession\
 .appName("HashtagCount")\
 .getOrCreate()
 
-df = spark.read.json("file:///home/saran/Downloads/PBPhase2/extractTweetsM.json")
+df = spark.read.json("/user/hadoop/extractTweetsM.json")
 
 
 # df.select("created_date").show()

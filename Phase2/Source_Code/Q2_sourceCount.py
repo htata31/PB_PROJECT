@@ -16,7 +16,7 @@ spark = SparkSession\
 .builder\
 .appName("HashtagCount")\
 .getOrCreate()
-df = spark.read.json("file:///home/saran/Downloads/PBPhase2/extractTweetsM.json")
+df = spark.read.json("/user/hadoop/extractTweetsM.json")
 df.createOrReplaceTempView("cricket")
 sqldf= spark.sql("SELECT substr(source,instr(source,'>')+1,(instr(source,'</a>')-instr(source,'>'))-1) source_info\
     ,count(*) source_count\
