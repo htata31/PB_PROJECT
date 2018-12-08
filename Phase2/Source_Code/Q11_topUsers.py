@@ -21,7 +21,7 @@ spark = SparkSession\
 .builder\
 .appName("HashtagCount")\
 .getOrCreate()
-df = spark.read.json("file:///home/harish/Downloads/PB/extractTweetsM.json")
+df = spark.read.json("/user/hadoop/extractTweetsM.json")
 df.createOrReplaceTempView("cricket")
 sqldf= spark.sql("SELECT user.id,user.name,count(*) FROM cricket WHERE (user.id is not null and user.name is not null) group by user.id,user.name order by 3 desc limit 10")
 sqldf.show(150)

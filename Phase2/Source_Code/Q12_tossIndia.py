@@ -20,7 +20,7 @@ spark = SparkSession\
 .builder\
 .appName("HashtagCount")\
 .getOrCreate()
-df = spark.read.json("file:///home/saran/Downloads/PBPhase2/extractTweetsM.json")
+df = spark.read.json("/user/hadoop/extractTweetsM.json")
 df=df.filter('(upper(text) LIKE "%TOSS%")')
 df.createOrReplaceTempView("cricket")
 sqldf= spark.sql("SELECT count(DISTINCT id) no_of_toss\

@@ -21,7 +21,7 @@ spark = SparkSession\
 .builder\
 .appName("HashtagCount")\
 .getOrCreate()
-df = spark.read.json("file:///home/saran/Downloads/PBPhase2/extractTweetsM.json")
+df = spark.read.json("/user/hadoop/extractTweetsM.json")
 df.createOrReplaceTempView("cricket")
 sqldf= spark.sql("SELECT 'CSK' ipl_team,count(*) FROM cricket WHERE upper(text) LIKE '%CSK%' \
 UNION \
